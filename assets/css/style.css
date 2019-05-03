@@ -1,0 +1,117 @@
+/* -----------------CODES COULEURS------------------ */
+/* ----------CSS pour les background color--------- */
+.bgc1{
+    background-color :#2fb7ec; /* bleu prononcé*/
+}
+.bgc2{
+    background-color: #e0f4fc; /* bleu clair */
+}
+.bgc3{
+    background-color: #f8fafb; /* bleu très clair*/
+}
+.bgc4{
+    background-color: #ffffff; /* blanc*/
+}
+.bgc5{
+    background-color: #ef8d2e; /* orange */
+}
+.bgc6{
+    background-color: #afc7d1; /*gris*/
+}
+/* ---------CSS pour les text color------------- */
+.txc1{
+    color :#2fb7ec; /* bleu prononcé*/
+}
+.txc2{
+    color: #e0f4fc; /* bleu clair */
+}
+.txc3{
+    color: #f8fafb; /* bleu très clair*/
+}
+.txc4{
+    color: #ffffff; /* blanc*/
+}
+.txc5{
+    color: #ef8d2e; /* orange */
+}
+.txc6{
+    color: #afc7d1; /*gris*/
+}
+.txc7{
+    color: #635e5e;
+}
+.Jh1 {
+  font-size: 15px;
+};
+/* css seb */
+@font-face {
+    font-family: Montel;
+    src: url('../font/Montel.ttf');
+}
+#navbarSticky .navbar-toggler-icon {
+background-image: url('https://mdbootstrap.com/img/svg/hamburger7.svg?color=fff');
+}
+a{
+    color: inherit;
+}
+a:link{
+    text-decoration: none;
+}
+nav .title{
+    font-family: Montel;
+}
+.grow{
+    transition: .2s ease-in-out;
+}
+.grow:hover{
+    transform: scale(1.2);
+}
+#banner{
+     height:158px;
+     background-image: url(../img/banner.jpg);
+     background-position: right;
+     background-size: cover;
+}
+.articleName{
+    font-weight: bold;
+    font-size: .8em;
+}
+.article:hover{
+    cursor: pointer;
+}
+#articlesPanier p, #resumeCommande p{
+    font-size: .8em;
+    margin-bottom: 0px;
+}
+#articlesPanier button{
+    transform: scale(.7);
+    font-size: 1.2em;
+}
+#totalPrice{
+    font-size: 2em!important;
+}
+.minusButton, .plusButton{
+    font-size: 1.2em!important;
+}
+.cartbubble{
+    font-size: .7em;
+    font-weight: bold;
+    position: absolute;
+    up:0px;
+}
+.article{
+    transition: .2s ease-in-out;
+}
+.article:hover{
+    opacity: .80;
+}
+footer h5{
+  font-size: .9em;
+}
+footer a{
+  font-size: .8em;
+}
+footer{
+  margin: 0px;
+  padding: 0px;
+}

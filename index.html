@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Quish - Gagnez plus pour dépenser plus.</title>
+</head>
+<body class="bgc3">
+  <!-- container Bootstrap -->
+  <div class="container-fluid px-0">
+    <!-- header -->
+    <header class="sticky-top mb-md-2">
+      <!-- navbar version mobile -->
+      <nav class="d-md-none navbar navbar-dark bgc1">
+        <span>
+          <button class="mr-2 d-inline navbar-toggler navbar-toggler-right order-0" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-hamburger txc4"></i>
+            <i class="fas fa-chevron-down txc4"></i>
+          </button>
+          <a class="title txc3 lead font-weight-bold" href="#!">
+            <i class="fas fa-pizza-slice"></i>
+            Quish.fr
+          </a>
+        </span>
+        <span>
+          <!-- icone search -->
+          <a href="#!"><i class="grow fas fa-search txc3 mx-1"></i></a>
+          <!-- icone panier -->
+          <a href="#!"><i class="grow iconePanier fas fa-shopping-cart px-1 txc3" data-toggle="modal" data-target="#modalPanier"></i></a>
+        </span>
+        <div class="navbar-collapse collapse" id="navbarColor02" style="">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="showCatAll nav-link" href="#">Maison <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="showCat1 nav-link" href="#">Nature et découverte</a>
+            </li>
+            <li class="nav-item">
+              <a class="showCat2 nav-link" href="#!">Vie pratique et bien-être</a>
+            </li>
+            <li class="nav-item">
+              <a class="showCat3 nav-link" href="#!">Boostez votre créativité</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!">Mon profil</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- navbar version PC -->
+      <div class="shadow-sm">
+        <nav class="d-none d-md-flex navbar navbar-dark bgc4 pb-0 mb-0">
+          <a class="grow title txc1 lead font-weight-bold" href="#!">
+            <i class="fas fa-pizza-slice"></i>
+            Quish.fr
+          </a>
+          <form class="form-inline">
+            <i class="fas fa-search mx-1"></i>
+            <input class="form-control mx-1" type="search" placeholder="Error 404" aria-label="Search">
+            <button class="btn bgc1 my-2 txc4">Rechercher</button>
+          </form>
+          <span>
+            <i class="far fa-user text-muted"></i>
+            <small class="mt-3 d-inline">Loraine Jambon</small>
+          </span>
+          <span>
+            <!-- icone cloche -->
+            <a href="#!"><i class="grow fas fa-bell px-1"></i></a>
+            <!-- icone panier -->
+            <a href="#!"><i class="grow iconePanier fas fa-shopping-cart px-1" data-toggle="modal" data-target="#modalPanier"></i></a>
+          </span>
+        </nav>
+        <!-- bas de la nav bar -->
+        <ul class="d-none d-md-flex nav justify-content-center bgc4 pt-0 font-weight-bold">
+          <li class="nav-item">
+            <a class="showCatAll nav-link active" href="#!"><i class="fas fa-home mr-2"></i>Maison</a>
+          </li>
+          <li class="nav-item">
+            <a class="showCat1 nav-link active" href="#!"><i class="fas fa-tree mr-2"></i>Nature et découverte</a>
+          </li>
+          <li class="nav-item">
+            <a class="showCat2 nav-link" href="#!"><i class="fas fa-heartbeat mr-2"></i>Vie pratique et bien-être</a>
+          </li>
+          <li class="nav-item">
+            <a class="showCat3 nav-link" href="#!"><i class="fas fa-paint-roller mr-2"></i>Boostez votre créativité</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+  </div>
+  <!-- main -->
+  <div class="container px-0 px-md-5">
+    <main>
+      <!-- banniere promo -->
+      <section id="banner" class="p-3 mb-4">
+        <h3 class="font-weight-bold">Dépensez encore plus!</h3>
+        <p>- 50 % supplémentaire avec ce code:
+          <button id="promoButton" class="btn bgc1 shadow" value="Promo">Promo</button>
+        </p>
+        <small>Offre illimitée et cumulable autant de fois que vous voulez. </small>
+      </section>
+      <!-- Modal Panier-->
+      <div class="modal" id="modalPanier" tabindex="-1" role="dialog" aria-labelledby="modalPanierLabel" aria-hidden="true">
+        <div class="h-100 modal-dialog modal-dialog-scrollable modal-lg" role="document">
+          <div class="modal-content bgc3">
+            <div class="modal-body ">
+              <h3 class="text-center font-weight-bold">Votre panier</h3>
+              <hr class="w-50 pb-2">
+              <div class="row mx-2">
+                <div class="col-7">
+                  <div class="justify-content-center align-content-center row bgc2">
+                    <p>Articles dans votre panier</p>
+                  </div>
+                  <div class="row">
+                    <div id="articlesPanier" class="col-12 shadow">
+                      <!-- ici on inserera les articles selectionnés -->
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4 offset-1">
+                  <div class="justify-content-center row bgc2">
+                    <p>Résumé</p>
+                  </div>
+                  <div class="row">
+                    <div id="resumeCommande" class="col-12 shadow">
+                      <!-- ici on le résumé de la commande -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button id="validateCart" type="button" class="btn bgc1 txc4 shadow">Commander</button>
+              <button type="button" class="btn bgc6 txc4 shadow" data-dismiss="modal"><small>Continuez vos achats</small></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- articles de test1 -->
+      <div class="row text-center">
+        <article id="01" class="article cat1 col-6 col-md-4 col-lg-3">
+            <img src="assets/img/seq1.jpg" class="img-fluid" alt="">
+            <p class="articleName">Séquoia plutôt grand</p>
+            <p class="articleDescription" hidden>Vente flash sequoia géant<br>
+              Date de non livraison : entre 500 et 550 ans. Magnifique lot de graines de sequoia en vente. Pour la modique somme de 1euros vous aurez la possibilité de ne pas vous faire livrer cet arbre majestueux qui de toute façon ne pousserait pas dans votre jardin. Pour seulement 50 000 euros de plus vous pourrez acquérir une parcelle bucolique juste à côté de votre achat; orientée Nord-Nord-Ouest afin de vous protéger des vents pacifiques nous vous promettons un cadre de vie convivial et silencieux aux côtés de ce majestueux cupressiné.</p>
+            <p class="price" hidden>499.99</p>
+            <p class="finalPrice" hidden>9.99</p>
+        </article>
+        <article id="02" class="article cat1 col-6 col-md-4 col-lg-3">
+            <img src="assets/img/pigeontete.png" class="img-fluid" alt="">
+            <p class="articleName">Pigeon des villes (deuxième patte vendue séparement)</p>
+            <p class="articleDescription" hidden>Pigeon des villes<br>
+              Livraison : demain. Labialisé grand kebab du coin de la rue, nos pigeons élevés à la viande de mouton et la frite tiède sauront vous charmer avec leurs pelages aux variations de couleurs chromatiques et nuancés. Hydraté à même le bitume, les oligo-excréments présents dans nos minis lacs synthétiques de trottoir donneront à votre majestueuse bête ailée une plume souple et résistante. Pour quelques euros de plus vous pourrez bénéficier d’une prothèse afin que votre familier puisse se déplacer sur ses deux jambes et vous distinguer auprès de vos voisins.</p>
+            <p class="price" hidden>19.99</p>
+            <p class="finalPrice" hidden>0.99</p>
+        </article>
+        <article id="03" class="article cat2 col-6 col-md-4 col-lg-3">
+            <img src="assets/img/marteau_elec.jpeg" class="img-fluid" alt="">
+            <p class="articleName">Marteau electrique</p>
+            <p class="articleDescription" hidden>Marteau électrique.Livraison : livraison gratuite sous 28 heures sous réserve de livreur. « Ceci est une révolution » s’exclamait il y a peu le célèbre Thomas Rosoire. Les graines d’un avenir meilleur était dès lors plantées. Directement confectionné dans nos usines délocalisés on ne sait pas où, ce marteau électrique vous permettra en toute ingéniosité une économie d’effort maximale! Offert séparément, mais conjointement quand même, un magnifique être humain dont on ne sait toujours pas d’où, et formé par nos meilleurs ingénieurs, activerons le moteur de votre nouvel outil avec leurs forces de travail. Une révolution !</p>
+            <p class="price" hidden>119.99</p>
+            <p class="finalPrice" hidden>29.87</p>
+        </article>
+        <article id="04" class="article cat3 col-6 col-md-4 col-lg-3">
+            <img src="assets/img/air-guit.jpg" class="img-fluid" alt="">
+            <p class="articleName">Air guitare</p>
+            <p class="articleDescription" hidden>Air guitare (édition limité). Livraison : instantanée. Reproduction originale de l’instrument phare du groupe TNIS (The Noise Is Silence), voici en édition limitée la air guitare de Her Von Tappinger. Signée et dédicacée par l’artiste lui même. Comme l’atteste l’image on retrouve également au dos cette petite perle musicale le célèbre dicton du groupe « Das ist keine Gitarre ».  Disponible bien entendu en différents coloris selon la nomenclature Ford. Corde vendue séparrement.</p>
+            <p class="price" hidden>0</p>
+            <p class="finalPrice" hidden>9.99</p>
+        </article>
+        <article id="05" class="article cat1 col-6 col-md-4 col-lg-3">
+            <img src="assets/img/mikaclem.jpg" class="img-fluid" alt="">
+            <p class="articleName"> Clémentines (vendu avec l'arbre)</p>
+            <p class="articleDescription" hidden>Les clémentines de Maitre Mickael. Livraison : jours bissextiles seulement. Clémentinier de père en rododinderon, la famille Baguet à su mettre à profit un climat rigoureux et d’abondantes pluies pour faire fructifier leurs capitaux. Leur célèbre devise « Clémentine is the new black » a permit à la famille de se hisser parmi les plus influentes du globe. Aujourd’hui à la tête d’un monopole fruitier et nectariphère sans précédent, les clémentines Baguet sont connues et reconnues pour apporter équilibre et vitamines à leurs consommateurs réguliers.</p>
+            <p class="price" hidden>1499.99</p>
+            <p class="finalPrice" hidden>45.98</p>
+        </article>
+        <article id="06" class="article cat1 col-6 col-md-4 col-lg-3">
+            <img src="assets/img/o2.jpg" class="img-fluid" alt="">
+            <p class="articleName">Oxygène (grand destockage)</p>
+            <p class="articleDescription" hidden>Oxygène en destockage. Livraison : Avant 2040 (derniers lots disponibles). Envie de prendre l‘air ? Depuis la nouvelle législation européenne sur les biens immatériels c‘est enfin possible ! Sur place ou à emporter nos techniciens vont récupérer à 1800 mètre d‘altitude les meilleurs atomes d‘oxygènes disponibles sur la marché. Certifié qualité skymium la livraison se fait par colis spécialement emballé sous vide. Pour 1m3 d‘oxygène acheté chez nous, profitez d‘une réduction à couper le souffle chez nos partenaires « Lamas-nus.com» !</p>
+            <p class="price" hidden>0</p>
+            <p class="finalPrice" hidden>9.97</p>
+        </article>
+        <article id="07" class="article cat3 col-6 col-md-4 col-lg-3">
+            <img src="assets/img/seb1.jpg" class="img-fluid" alt="">
+            <p class="articleName">Casque à émission de coolitude</p>
+            <p class="articleDescription" hidden> Casque à émission de coolitude. Livraison : Oui. Voici la dernière commercialisation de la firme californienne Domotricks, ce petit bijoux technologique vous permettra à l‘aide de ces capteurs sensori-moteurs de simultanément réceptionner les ondes de confiance de ses interlocuteurs et d‘émettre sur la même fréquence un mélange d’extraits naturelles d’hormones de bonobos élevés en cuve et de vos propres hormones. Les propriétés actives pénètrent en profondeur le cortex limbique des protagonistes et vont stimuler les gènes ataviques B-48 et HL-97, donnant l’impression aux autres que vous êtes cool. (Attention, chez certaines personnes quelques effets secondaires comme une envie irrépréhensible de de bananes peuvent apparaître, veuillez lire la notice d’utilisation pour de plus amples détails.)</p>
+            <p class="price" hidden>119.97</p>
+            <p class="finalPrice" hidden>118.96</p>
+        </article>
+        <article id="08" class="article cat3 col-6 col-md-4 col-lg-3">
+            <img src="assets/img/tetemouchoir.jpg" class="img-fluid" alt="">
+            <p class="articleName">Distributeur de papier toilette portatif et amovible</p>
+            <p class="articleDescription" hidden>Distributeur de papier toilette portatif et amovible. Livraison : Le matin à partir de 14 heures. Pour tout ceux qui ont trop souvent la tête dans le cul</p>
+            <p class="price" hidden>4.99</p>
+            <p class="finalPrice" hidden>0.99</p>
+        </article>
+        <article id="09" class="article cat3 col-6 col-md-4 col-lg-3">
+            <img src="assets/img/armelette.jpg" class="img-fluid" alt="">
+            <p class="articleName">Moule à oeuf</p>
+            <p class="articleDescription" hidden>L'Armelette. Livraison : jour de ponte. Les autorités ont recensé une réduction du taux de criminalité de 40 %. Notre envoyée spéciale à pu interviewer une bande de criminels fraîchement repentie, leurs propos sont éloquents : «Depuis l’achat de l’armelette c’est vrai qu’avec la bande on s’est senti un peu mi-molette à l’idée de continuer nos petit larcins. Alors on a eu l’idée de lancer notre jeu concours « Eggzilla.» où nous récompensons les œufs les plus gros reçus chaque mois et les revendons pour rémunérer les producteurs.
+            <p class="price" hidden>9.99</p>
+            <p class="finalPrice" hidden>1.99</p>
+        </article>
+        <article id="10" class="article cat2 col-6 col-md-4 col-lg-3">
+            <img src="assets/img/Chaussonstorche.jpg" class="img-fluid" alt="">
+            <p class="articleName">Chaussons torche</p>
+            <p class="articleDescription" hidden>Chaussons torche. Mise au point dans les laboratoires de la LPDDR (la Ligue des Petits Doigts de Pieds Résistants). Sans les chaussons :« AIE », « BORDEL DE ZUT », « MERDE », « PU!@£#! », « AAAAAAAH », « PAS ENCORE », « COMMODE DE BRIN ». Avec les chaussons :« .. »</p>
+            <p class="price" hidden>59.99</p>
+            <p class="finalPrice" hidden>5.99</p>
+        </article>
+        <article id="11" class="article cat2 col-6 col-md-4 col-lg-3">
+            <img src="assets/img/balai.png" class="img-fluid" alt="">
+            <p class="articleName">Balai horizontal à balayage rotatif </p>
+            <p class="articleDescription" hidden>Gamme de balais conçue par Jean-Claude Van Damme après une retraite de 7 jours  au monastère de  Chanzhung. La légende dit qu’il aurait communié avec le dragon à 5 tête du lac sacré, les moines résidents ont privilégié une version plus sobre où JVCD serait resté coincé une semaine dans cave à cailler le lait de chèvre. Le lactose concentré l’ayant laissé en état d’ébriété assez avancé pour que la porte de la pièce souterraine se transforme en énigme de plusieurs jours. Le lien avec ce balais n’a à ce jour pas encore été prouvé. </p>
+            <p class="price" hidden>49.99</p>
+            <p class="finalPrice" hidden>7.56</p>
+        </article>
+        <article id="12" class="article cat2 col-6 col-md-4 col-lg-3">
+            <img src="assets/img/crememulti.jpg" class="img-fluid" alt="">
+            <p class="articleName">Crème de soin multifonction</p>
+            <p class="articleDescription" hidden>Résultat d’une collaboration entre les laboratoires Garnier et Feu Vert, la crème d’hydratation « Visqueuse Douceur ». Issus de l’agriculture biologique, es escargots concassés offre un très bon lubrifiant pour les rouages de votre moteur et les imperfections de votre peau.</p>
+            <p class="price" hidden>99.86</p>
+            <p class="finalPrice" hidden>56.45</p>
+        </article>
+      </div>
+    </main>
+  </div>
+  <footer class="bgc2 page-footer font-small indigo">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-6 col-lg-3">
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Contactez-vous</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a class="txc7" href="#!">Service clientèle</a>
+            </li>
+            <li>
+              <a class="txc7" href="#!">Blog</a>
+            </li>
+            <li>
+              <a class="txc7" href="#!">Carrière</a>
+            </li>
+            <li>
+              <a class="txc7" href="#!">A propos de Quish</a>
+            </li>
+          </ul>
+        </div>
+        <hr class="clearfix w-100 d-md-none">
+        <div class="col-md-6 col-lg-3">
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Conditions</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a class="txc7" href="#!">Politique de confidentialité</a>
+            </li>
+            <li>
+              <a class="txc7" href="#!">Politique fiscale</a>
+            </li>
+            <li>
+              <a class="txc7" href="#!">Conditions d'utilisation</a>
+            </li>
+            <li>
+              <a class="txc7" href="#!">Politique d'échange</a>
+            </li>
+          </ul>
+        </div>
+        <hr class="clearfix w-100 d-md-none">
+        <div class="col-md-6 col-lg-3">
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Le groupe Quish</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a class="txc7" href="#!">Qui sommes nous ?</a>
+            </li>
+            <li>
+              <a  class="txc7" href="#!">Recrutement</a>
+            </li>
+            <li>
+              <a class="txc7" href="#!">Développement durable</a>
+            </li>
+            <li>
+              <a class="txc7" href="#!">Groupe Quish</a>
+            </li>
+          </ul>
+        </div>
+        <hr class="clearfix w-100 d-md-none">
+        <div class="col-md-6 col-lg-3">
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Nos partenaires</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a class="txc7" href="#!">Lame-a-nue</a>
+            </li>
+            <li>
+              <a class="txc7" href="#!">I-watch</a>
+            </li>
+            <li>
+              <a class="txc7" href="#!">ELEMENTS</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright text-center py-3">© 2019-2019:
+      <a href="#"> Quish.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- scripts JQuery Popper et Bootstrap-->
+  <script src="assets/js/jquery-3.4.0.min.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <!-- mon script principal -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
